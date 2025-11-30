@@ -81,3 +81,18 @@ def set_webhook():
     webhook_url = f"https://YOUR-RENDER-URL.onrender.com/webhook"
     bot_app.bot.set_webhook(webhook_url)
     return f"Webhook set to: {webhook_url}"
+# Webhook sozlash uchun yangi route
+@app.route('/set_webhook')
+def set_webhook():
+    webhook_url = f"https://temir1.onrender.com/webhook"
+    success = bot_app.bot.set_webhook(webhook_url)
+    if success:
+        return f"✅ Webhook muvaffaqiyatli o'rnatildi: {webhook_url}"
+    else:
+        return "❌ Webhook o'rnatishda xatolik"
+
+# Webhook ni tekshirish
+@app.route('/webhook_info')
+def webhook_info():
+    info = bot_app.bot.get_webhook_info()
+    return f"Webhook ma'lumotlari: {info}"

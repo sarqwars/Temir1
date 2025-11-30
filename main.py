@@ -75,3 +75,9 @@ if __name__ == "__main__":
     print("Bot started successfully!")
     app.run(host="0.0.0.0", port=5000)
     # bot ishga tushdi
+# Yangi kod qo'shish
+@app.route('/set_webhook')
+def set_webhook():
+    webhook_url = f"https://YOUR-RENDER-URL.onrender.com/webhook"
+    bot_app.bot.set_webhook(webhook_url)
+    return f"Webhook set to: {webhook_url}"
